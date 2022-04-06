@@ -1,4 +1,4 @@
-function computerPlay(choice) {
+function computerPlay() {
     let result = Math.floor(Math.random() * 3) + 1;
     let compSelect = 'a'
     if (result === 1) {
@@ -18,4 +18,23 @@ function computerPlay(choice) {
     return compSelect;
 }
 
-console.log(computerPlay());
+function playerSelection() {
+    let playerSelect = parseInt(prompt('What do you want to play (Enter the corressponding number)\nRock - 1 \nPaper - 2\nScissors - 3'));
+    if (playerSelect === 1) {
+        playerChoice = 'You have selected Rock';
+    }
+    else if (playerSelect === 2) {
+        playerChoice = 'You have selected Paper';
+    }
+    else if (playerSelect === 3) {
+        playerChoice = 'You have selected Scissors';
+    }
+    else {
+        console.error('Invalid Input.\nPlease try again');;
+    }
+    return playerChoice;
+}
+
+console.log(playerSelection());
+
+// console.log(computerPlay());
