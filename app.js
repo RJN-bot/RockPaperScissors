@@ -70,7 +70,7 @@ console.log(`Computer had selected ${compMove}\nYou selected ${playerMove}`);
 //JS logic done 🙀🙀
 
 function game() {
-    for (let i = 0; compCounter < 5 && playerCounter < 5; i++) {
+    for (let i = 0; ((compCounter < 5) && (playerCounter < 5)); i++) {
         playRound();
     }
 }
