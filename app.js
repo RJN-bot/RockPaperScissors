@@ -19,7 +19,10 @@ function computerPlay() {
 }
 
 function playerPlay() {
-    let playerSelect = parseInt(prompt('What do you want to play (Enter the corressponding number)\nRock - 1 \nPaper - 2\nScissors - 3'));
+    // let playerSelect = parseInt(prompt('What do you want to play (Enter the corressponding number)\nRock - 1 \nPaper - 2\nScissors - 3'));
+    let playerSelect = Math.floor(Math.random() * 3) + 1;
+
+    let playerChoice = "a";
     if (playerSelect === 1) {
         playerChoice = 'Rock';
     }
@@ -37,6 +40,9 @@ function playerPlay() {
 
 // console.log("You have selected", playerPlay());
 
+let compCounter = 0;
+let playerCounter = 0;
+
 function playRound(playerChoice, compSelect) {
     let result = "Undecided";
     if (playerChoice === compSelect) {
@@ -44,19 +50,29 @@ function playRound(playerChoice, compSelect) {
     }
     else {
         if ((playerChoice == "Rock" && compSelect == "Paper") || (playerChoice == "Paper" && compSelect == "Scissors") || (playerChoice == "Scissors" && compSelect == "Rock")) {
-            result = "You lost! \nComputer Won :("
+            result = "You lost! \nComputer Won :(";
+            compCounter++;
         }
         else {
-            result = "You won :)"
+            result = "You won :)";
+            playerCounter++;
         }
     }
     return result;
 }
 
-const compMove = computerPlay();
-const playerMove = playerPlay();
+let compMove = computerPlay();
+let playerMove = playerPlay();
 
 console.log(playRound(playerMove, compMove));
 console.log(`Computer had selected ${compMove}\nYou selected ${playerMove}`);
 
 //JS logic done 🙀🙀
+
+function game() {
+    for (let i = 0; compCounter < 5 && playerCounter < 5; i++) {
+        playRound();
+    }
+}
+
+game();
