@@ -21,23 +21,21 @@ function computerPlay() {
 function playerPlay() {
     let playerSelect = parseInt(prompt('What do you want to play (Enter the corressponding number)\nRock - 1 \nPaper - 2\nScissors - 3'));
     if (playerSelect === 1) {
-        playerChoice = 'You have selected Rock';
+        playerChoice = 'Rock';
     }
     else if (playerSelect === 2) {
-        playerChoice = 'You have selected Paper';
+        playerChoice = 'Paper';
     }
     else if (playerSelect === 3) {
-        playerChoice = 'You have selected Scissors';
+        playerChoice = 'Scissors';
     }
     else {
-        console.error('Invalid Input.\nPlease try again');;
+        console.warn('Invalid Input.\nPlease try again and enter the correct value ');;
     }
     return playerChoice;
 }
 
-// console.log(playerSelection());
-
-// console.log(computerPlay());
+// console.log("You have selected", playerPlay());
 
 function playRound(playerChoice, compSelect) {
     let result = "Undecided";
@@ -45,8 +43,18 @@ function playRound(playerChoice, compSelect) {
         result = "Draw";
     }
     else {
-        result = "Not draw";
+        if ((playerChoice == "Rock" && compSelect == "Paper") || (playerChoice == "Paper" && compSelect == "Scissors") || (playerChoice == "Scissors" && compSelect == "Rock")) {
+            result = "You lost! \nComputer Won :("
+        }
+        else {
+            result = "You won :)"
+        }
     }
+    return result;
 }
 
-console.log(playRound(playerPlay(), computerPlay())); 
+const compMove = computerPlay();
+const playerMove = playerPlay();
+
+console.log(playRound(playerMove, compMove));
+console.log(`Computer had selected ${compMove}\nYou selected ${playerMove}`);
