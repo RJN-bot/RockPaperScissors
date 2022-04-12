@@ -18,7 +18,7 @@ function computerPlay() {
     return compSelect;
 }
 
-function playerSelection() {
+function playerPlay() {
     let playerSelect = parseInt(prompt('What do you want to play (Enter the corressponding number)\nRock - 1 \nPaper - 2\nScissors - 3'));
     if (playerSelect === 1) {
         playerChoice = 'You have selected Rock';
@@ -35,6 +35,18 @@ function playerSelection() {
     return playerChoice;
 }
 
-console.log(playerSelection());
+// console.log(playerSelection());
 
 // console.log(computerPlay());
+
+function playRound(playerChoice, compSelect) {
+    let result = "Undecided";
+    if (playerChoice === compSelect) {
+        result = "Draw";
+    }
+    else {
+        result = "Not draw";
+    }
+}
+
+console.log(playRound(playerPlay(), computerPlay())); 
