@@ -44,13 +44,17 @@ let compCounter = 0;
 let playerCounter = 0;
 
 function playRound(playerChoice, compSelect) {
+
+    let compMove = computerPlay();
+    let playerMove = playerPlay();
     let result = "Undecided";
+
     if (playerChoice === compSelect) {
         result = "Draw";
     }
     else {
         if ((playerChoice == "Rock" && compSelect == "Paper") || (playerChoice == "Paper" && compSelect == "Scissors") || (playerChoice == "Scissors" && compSelect == "Rock")) {
-            result = "You lost! \nComputer Won :(";
+            result = "Computer Won :(";
             compCounter++;
         }
         else {
@@ -58,21 +62,20 @@ function playRound(playerChoice, compSelect) {
             playerCounter++;
         }
     }
+    console.log(playerMove, compMove);
+    console.log(`Computer had selected ${compMove}\nYou selected ${playerMove}`);
     return result;
 }
 
-let compMove = computerPlay();
-let playerMove = playerPlay();
-
-console.log(playRound(playerMove, compMove));
-console.log(`Computer had selected ${compMove}\nYou selected ${playerMove}`);
-
-//JS logic done 🙀🙀
 
 function game() {
-    for (let i = 0; ((compCounter < 5) && (playerCounter < 5)); i++) {
+    for (let i = 0; (compCounter < 5 && playerCounter < 5); i++) {
         playRound();
     }
+
+    // while ((compCounter < 5) && (playerCounter < 5)) {
+    //     playRound();
+    // }
 }
 
 game();
