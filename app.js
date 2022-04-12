@@ -58,3 +58,5 @@ const playerMove = playerPlay();
 
 console.log(playRound(playerMove, compMove));
 console.log(`Computer had selected ${compMove}\nYou selected ${playerMove}`);
+
+//JS logic done 🙀🙀
