@@ -1,6 +1,8 @@
 function computerPlay() {
+
     let result = Math.floor(Math.random() * 3) + 1;
-    let compSelect = 'a'
+    let compSelect = 'a';
+
     if (result === 1) {
         compSelect = 'Rock';
     }
@@ -14,15 +16,19 @@ function computerPlay() {
         compSelect = "unexpected error!";
     }
 
-    // (result === 1) ? (compSelect = 'Rock') : (result === 2) ? (compSelect = 'Paper') : (result === 3) ? (compSelect = 'Rock') : compSelect = 'Unexpected Error pls contact support'
     return compSelect;
 }
 
 function playerPlay() {
-    // let playerSelect = parseInt(prompt('What do you want to play (Enter the corressponding number)\nRock - 1 \nPaper - 2\nScissors - 3'));
-    let playerSelect = Math.floor(Math.random() * 3) + 1;
 
-    let playerChoice = "a";
+    // let playerSelect = parseInt(prompt('What do you want to play (Enter the corressponding number)\nRock - 1 \nPaper - 2\nScissors - 3'));
+    // Actual code to be used when running in console 👆
+
+    let playerSelect = Math.floor(Math.random() * 3) + 1;
+    // Keeping this 👆 here so I can run everything outside the console for testing purposes
+
+    let playerChoice = "wrong input";
+    
     if (playerSelect === 1) {
         playerChoice = 'Rock';
     }
@@ -33,17 +39,17 @@ function playerPlay() {
         playerChoice = 'Scissors';
     }
     else {
-        console.warn('Invalid Input.\nPlease try again and enter the correct value ');;
+        console.error('Invalid Input.\nPlease try again and enter the correct value ');;
     }
+    
     return playerChoice;
 }
 
-// console.log("You have selected", playerPlay());
 
 let compCounter = 0;
 let playerCounter = 0;
 
-function playRound(playerChoice, compSelect) {
+function playRound() {
 
     let compMove = computerPlay();
     let playerMove = playerPlay();
@@ -57,26 +63,25 @@ function playRound(playerChoice, compSelect) {
             result = "Computer Won :(";
             compCounter++;
         }
-        else {
+        else if ((compMove == "Rock" && playerMove == "Paper") || (compMove == "Paper" && playerMove == "Scissors") || (compMove == "Scissors" && playerMove == "Rock")) {
             result = "You won :)";
             playerCounter++;
         }
+        else {
+            console.error('Wrong input pls try again')
+        }
     }
-    // console.log(playerMove, compMove);
+
     console.log(`Computer had selected ${compMove}\nYou selected ${playerMove}`);
-    console.log(`Current score: \nPlayer: ${playerCounter}\nComputer: ${compCounter}`);
+    console.warn(`Current score: \nPlayer: ${playerCounter}\nComputer: ${compCounter}\n\nRound result: ${result}`);
+
     return result;
 }
 
 
 function game() {
-    for (let i = 0; (compCounter < 5 && playerCounter < 5); i++) {
+    for (let i = 0; (compCounter < 5 && playerCounter < 5); i++)
         playRound();
-    }
-
-    // while ((compCounter < 5) && (playerCounter < 5)) {
-    //     playRound();
-    // }
 }
 
 game();
