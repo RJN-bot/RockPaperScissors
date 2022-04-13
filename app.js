@@ -21,14 +21,14 @@ function computerPlay() {
 
 function playerPlay() {
 
-    // let playerSelect = parseInt(prompt('What do you want to play (Enter the corressponding number)\nRock - 1 \nPaper - 2\nScissors - 3'));
+    let playerSelect = parseInt(prompt('What do you want to play (Enter the corressponding number)\nRock - 1 \nPaper - 2\nScissors - 3'));
     // Actual code to be used when running in console 👆
 
-    let playerSelect = Math.floor(Math.random() * 3) + 1;
+    // let playerSelect = Math.floor(Math.random() * 3) + 1;
     // Keeping this 👆 here so I can run everything outside the console for testing purposes
 
     let playerChoice = "wrong input";
-    
+
     if (playerSelect === 1) {
         playerChoice = 'Rock';
     }
@@ -41,7 +41,7 @@ function playerPlay() {
     else {
         console.error('Invalid Input.\nPlease try again and enter the correct value ');;
     }
-    
+
     return playerChoice;
 }
 
