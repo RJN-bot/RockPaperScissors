@@ -49,11 +49,11 @@ function playRound(playerChoice, compSelect) {
     let playerMove = playerPlay();
     let result = "Undecided";
 
-    if (playerChoice === compSelect) {
+    if (playerMove === compMove) {
         result = "Draw";
     }
     else {
-        if ((playerChoice == "Rock" && compSelect == "Paper") || (playerChoice == "Paper" && compSelect == "Scissors") || (playerChoice == "Scissors" && compSelect == "Rock")) {
+        if ((playerMove == "Rock" && compMove == "Paper") || (playerMove == "Paper" && compMove == "Scissors") || (playerMove == "Scissors" && compMove == "Rock")) {
             result = "Computer Won :(";
             compCounter++;
         }
@@ -62,8 +62,9 @@ function playRound(playerChoice, compSelect) {
             playerCounter++;
         }
     }
-    console.log(playerMove, compMove);
+    // console.log(playerMove, compMove);
     console.log(`Computer had selected ${compMove}\nYou selected ${playerMove}`);
+    console.log(`Current score: \nPlayer: ${playerCounter}\nComputer: ${compCounter}`);
     return result;
 }
 
