@@ -1,3 +1,30 @@
+// Create three buttons, one for each selection. ✅
+// Add an event listener to the buttons that call your playRound function with the correct playerSelection 
+// every time a button is clicked. (you can keep the console.logs for this step)
+
+let rock = document.querySelector('.rock');
+let paper = document.querySelector('.paper');
+let scissors = document.querySelector('.scissors');
+
+console.log(rock, paper, scissors);
+
+let playerSelect;
+
+rock.addEventListener('click', () => {
+    playerSelect = 1;
+    playRound();
+})
+
+paper.addEventListener('click', () => {
+    playerSelect = 2;
+    playRound();
+})
+
+scissors.addEventListener('click', () => {
+    playerSelect = 3;
+    playRound();
+})
+
 function computerPlay() {
 
     let result = Math.floor(Math.random() * 3) + 1;
@@ -21,7 +48,7 @@ function computerPlay() {
 
 function playerPlay() {
 
-    let playerSelect = parseInt(prompt('What do you want to play (Enter the corressponding number)\nRock - 1 \nPaper - 2\nScissors - 3'));
+    // let playerSelect = parseInt(prompt('What do you want to play (Enter the corressponding number)\nRock - 1 \nPaper - 2\nScissors - 3'));
     // Actual code to be used when running in console 👆
 
     // let playerSelect = Math.floor(Math.random() * 3) + 1;
@@ -80,8 +107,9 @@ function playRound() {
 
 
 function game() {
-    for (let i = 0; (compCounter < 5 && playerCounter < 5); i++)
-        playRound();
+    // for (let i = 0; (compCounter < 5 && playerCounter < 5); i++)
+    playRound();
 }
 
 game();
+
