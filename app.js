@@ -95,7 +95,7 @@ function playRound() {
             playerCounter++;
         }
         else {
-            console.error('Wrong input pls try again')
+            console.error('Wrong input pls try again');
         }
     }
 
