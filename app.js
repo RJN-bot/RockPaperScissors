@@ -2,12 +2,15 @@
 // Add an event listener to the buttons that call your playRound function with the correct playerSelection 
 // every time a button is clicked. (you can keep the console.logs for this step)
 
+// Add a div for displaying results and change all of your console.logs into DOM methods.
+
 let rock = document.querySelector('.rock');
 let paper = document.querySelector('.paper');
 let scissors = document.querySelector('.scissors');
-
-console.log(rock, paper, scissors);
-
+let resultDiv = document.querySelector('.result');
+let computerSelectionPara = document.querySelector('.computerSelection');
+let playerSelectionPara = document.querySelector('.playerSelection');
+let roundResultPara = document.querySelector('.roundResult');
 let playerSelect;
 
 rock.addEventListener('click', () => {
@@ -66,10 +69,19 @@ function playerPlay() {
         playerChoice = 'Scissors';
     }
     else {
-        console.error('Invalid Input.\nPlease try again and enter the correct value ');;
+
     }
 
+
+
+
+
+
     return playerChoice;
+
+
+    
+
 }
 
 
@@ -102,7 +114,20 @@ function playRound() {
     console.log(`Computer had selected ${compMove}\nYou selected ${playerMove}`);
     console.warn(`Current score: \nPlayer: ${playerCounter}\nComputer: ${compCounter}\n\nRound result: ${result}`);
 
+
+    let computerSelectionMsg = `Computer had selected ${compMove}`
+    let playerSelectionMsg = `You selected ${playerMove}`
+    let resultMessage = `Current score: \nPlayer: ${playerCounter}\nComputer: ${compCounter}\n\n`
+    let roundResultMsg = `Round result: ${result}`
+
+    playerSelectionPara.textContent = playerSelectionMsg;
+    computerSelectionPara.textContent = computerSelectionMsg;
+    resultDiv.textContent = resultMessage;
+    roundResultPara.textContent = roundResultMsg;
     return result;
+
+
+
 }
 
 
