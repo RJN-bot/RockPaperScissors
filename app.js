@@ -80,7 +80,7 @@ function playerPlay() {
     return playerChoice;
 
 
-    
+
 
 }
 
@@ -132,8 +132,14 @@ function playRound() {
 
 
 function game() {
-    // for (let i = 0; (compCounter < 5 && playerCounter < 5); i++)
-    playRound();
+    // for (let i = 0; (compCounter < 5 && playerCounter < 5); i++) {
+    //     playRound();
+    // }
+    // playRound();
+
+    while (compCounter < 5 && playerCounter < 5) {
+        playRound();
+    }
 }
 
 game();
