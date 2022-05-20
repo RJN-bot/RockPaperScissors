@@ -99,6 +99,7 @@ function playRound() {
     }
     else {
         if ((playerMove == "Rock" && compMove == "Paper") || (playerMove == "Paper" && compMove == "Scissors") || (playerMove == "Scissors" && compMove == "Rock")) {
+            // if (compWin()) {
             result = "Computer Won :(";
             compCounter++;
         }
@@ -137,10 +138,22 @@ function game() {
     // }
     // playRound();
 
-    while (compCounter < 5 && playerCounter < 5) {
-        playRound();
-    }
+    // while (compCounter < 5 && playerCounter < 5) {
+    playRound();
+    // }
 }
 
 game();
 
+// for (let i = 0; i < 5; i++) {
+//     if () {
+//         compCounter++;
+//     }
+
+// }
+
+function compWin() {
+    if ((playerMove == "Rock" && compMove == "Paper") || (playerMove == "Paper" && compMove == "Scissors") || (playerMove == "Scissors" && compMove == "Rock")) {
+        return true;
+    };
+}
